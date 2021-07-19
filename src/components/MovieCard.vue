@@ -52,7 +52,6 @@ export default {
     };
   },
   methods: {
-    
     poster(poster_path) {
       return "https://image.tmdb.org/t/p/w342" + poster_path;
     },
@@ -72,7 +71,7 @@ export default {
     width: 100%;
 
     .movie-info {
-      height: 100%;
+      padding: 0 40px;
       font-size: 24px;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
         Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
