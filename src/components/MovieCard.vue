@@ -1,12 +1,11 @@
 <template>
   <div class="card-container">
     <div class="card">
-      <img :src="poster(poster_path)" alt="" />
+      <img class="poster" :src="poster(poster_path)" alt="poster" />
       <div class="movie-info flex">
         <div>{{ title }} {{ name }}</div>
         <div>{{ original_title }} {{ original_name }}</div>
-        <img class="flag" :src="flag(original_language)" alt="" />
-        <div>{{ vote }}</div>
+        <img class="flag" :src="flag(original_language)" alt="flag" />
         <div>
           <span>
             <i v-if="vote > 0" class="fas fa-star"></i>
@@ -69,21 +68,29 @@ export default {
   .card {
     height: 513px;
     width: 100%;
-
+    .poster {
+      width: 342px;
+      height: 513px;
+    }
+    &:hover .movie-info {
+      display: block;
+    }
     .movie-info {
-      padding: 0 40px;
+      padding: 100px 40px 0 40px;
       font-size: 24px;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
         Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
       color: white;
+      height: 100%;
       position: relative;
-      bottom: 100%;
+      bottom: 101%;
       width: 342px;
       text-align: center;
       background-color: rgb(27, 27, 27, 0.5);
       justify-content: center;
       flex-direction: column;
       text-shadow: 4px 2px 7px rgba(0, 0, 0, 0.9);
+      display: none;
 
       .flag {
         width: 40px;

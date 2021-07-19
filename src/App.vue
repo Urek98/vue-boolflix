@@ -24,6 +24,7 @@ export default {
   created() {
     axios.get('https://api.themoviedb.org/3/movie/popular?api_key=62aed4b36495873a9f59552a12b9c758&').then((result) => {
       this.movieList = result.data.results
+      this.inputValue = ''
     })
   },
   methods: {

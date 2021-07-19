@@ -4,7 +4,7 @@
     <div class="search-section">
       <input type="text" placeholder="Search movie..."
         v-model="inputValue" @keyup.enter="$emit('search',inputValue)" />
-      <button>Search</button>
+      <button @click="$emit('search',inputValue)"><i class="fas fa-search"></i></button>
     </div>
   </div>
 </template>
@@ -46,7 +46,7 @@ export default {
       font-size: 20px;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
         Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      padding: 2px;
+      padding: 2px 25px;
       background-color: rgb(27, 27, 27);
       border-radius:0 5px 5px 0;
       color: greenyellow;

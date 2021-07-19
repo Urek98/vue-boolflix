@@ -31,10 +31,10 @@ export default {
 
 <style scoped lang="scss">
 .main-section {
-  background-color: grey;
+  background-color: rgb(73, 72, 72);
   width: 100%;
   height: 100%;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
   padding: 40px;
 }
