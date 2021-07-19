@@ -1,15 +1,15 @@
 <template>
-  <div class="card-container flex">
+  <div class="card-container ">
     <div class="card">
       <img
-        src="https://image.tmdb.org/t/p/w342/hQq8xZe5uLjFzSBt4LanNP7SQjl.jpg"
+        :src="poster(poster_path)"
         alt=""
       />
-      <div class="movie-info">
-        <div>Titolo</div>
-        <div>Titolo originale</div>
-        <div>Lingua</div>
-        <div>Voto</div>
+      <div class="movie-info flex">
+        <div>{{title}} {{name}}</div>
+        <div>{{original_title}} {{original_name}}</div>
+        <img class="flag" :src="flag(original_language)" alt="">
+        <div>{{vote_average}}</div>
       </div>
     </div>
   </div>
@@ -18,35 +18,62 @@
 <script>
 export default {
   name: "MovieCard",
-  props: {},
+  props: {
+      title: String,
+      name: String,
+      original_title : String,
+      original_name : String,
+      original_language : String,
+      poster_path: String,
+      vote_average : Number,
+  },
+  data() {
+      return {
+
+      };
+  },
+  methods: {
+      poster(poster_path) {
+          return "https://image.tmdb.org/t/p/w342" + poster_path
+      },
+      flag(original_Language) {
+          return require("../assets/" + original_Language + ".png")
+      }
+  }
 };
 </script>
 
 
 <style scoped lang="scss">
 .card-container {
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding: 40px;
+  padding-bottom: 20px;
   .card {
+      height: 513px;
+      width: 100%;
       :hover + .movie-info{
             display: block;
            transition: all 5s;
         }
     .movie-info{
+        height: 100%;
         font-size: 24px;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         color: white;
         position: relative;
-        bottom: 30%;
+        bottom: 100%;
+        width: 342px;
         text-align: center;
         background-color: rgb(27,27,27,0.5);
-        display: none;
+        justify-content: center;
+        flex-direction: column;
         text-shadow: 4px 2px 7px rgba(0,0,0,0.9);
         :hover{
             display: block;
         }
-        
+        .flag{
+            width: 40px;
+            margin: 0 auto;
+        }
         
     }
   }

@@ -2,7 +2,8 @@
   <div class="nav-bar flex">
     <div class="logo">BOOLFLIX</div>
     <div class="search-section">
-      <input type="text" placeholder="Search movie..." />
+      <input type="text" placeholder="Search movie..."
+        v-model="inputValue" @keyup.enter="$emit('search',inputValue)" />
       <button>Search</button>
     </div>
   </div>
@@ -39,6 +40,7 @@ export default {
         border-bottom: 2px solid greenyellow;
         background-color: rgb(27, 27, 27);
         padding: 2px;
+        color: greenyellow;
     }
     button {
       font-size: 20px;
