@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header @search="searchResult" @clickLogo="getPopular"/>
+    <Header @search="searchResult" @clickLogo="getPopular" />
     <Main :movieList="movieList" />
   </div>
 </template>
@@ -33,24 +33,17 @@ export default {
   },
   methods: {
     searchResult(inputValue) {
-      axios
-        .get(
-          `https://api.themoviedb.org/3/search/multi/?api_key=62aed4b36495873a9f59552a12b9c758&query=${inputValue}`
-        )
-        .then((result) => {
-          this.movieList = result.data.results;
-        });
-    },
-    getPopular() {
-    axios
-      .get(
-        "https://api.themoviedb.org/3/movie/popular?api_key=62aed4b36495873a9f59552a12b9c758&"
-      )
-      .then((result) => {
+      if(inputValue.length == 0) {
+        axios.get("https://api.themoviedb.org/3/movie/popular?api_key=62aed4b36495873a9f59552a12b9c758&").then((result) => {
         this.movieList = result.data.results;
       });  
-    }
-  },
+      } else {
+      axios.get(`https://api.themoviedb.org/3/search/multi/?api_key=62aed4b36495873a9f59552a12b9c758&query=${inputValue}`).then((result) => {
+          this.movieList = result.data.results;
+        });
+      }
+    },
+  }
 };
 </script>
 

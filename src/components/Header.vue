@@ -1,8 +1,8 @@
 <template>
   <div class="nav-bar flex">
-    <div class="logo"  @click="$emit(clickLogo)">BOOLFLIX</div>
+    <div class="logo" >BOOLFLIX</div>
     <div class="search-section">
-      <input type="text" placeholder="Search movie..."
+      <input type="text" placeholder="Search..."
         v-model="inputValue" @keyup.enter="$emit('search',inputValue)" />
       <button @click="$emit('search',inputValue)"><i class="fas fa-search"></i></button>
     </div>
@@ -39,11 +39,12 @@ export default {
         Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         border-bottom: 2px solid greenyellow;
         background-color: rgb(27, 27, 27);
-        padding: 2px 40px;
+        padding: 2px 0 2px 20px;
         color: greenyellow;
     }
     button {
       font-size: 20px;
+      padding: 2px 20px;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
         Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
       padding: px 25px;
