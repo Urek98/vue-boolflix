@@ -7,26 +7,10 @@
         <div>{{ original_title }} {{ original_name }}</div>
         <img class="flag" :src="flag(original_language)" alt="flag" />
         <div>
-          <span>
-            <i v-if="vote > 0" class="fas fa-star"></i>
-            <i v-else class="far fa-star"></i>
+          <span v-for="x in 5" :key="x">
+            <i :class="checkStar(x)"></i>
           </span>
-          <span>
-            <i v-if="vote > 1" class="fas fa-star"></i>
-            <i v-else class="far fa-star"></i>
-          </span>
-          <span>
-            <i v-if="vote > 2" class="fas fa-star"></i>
-            <i v-else class="far fa-star"></i>
-          </span>
-          <span>
-            <i v-if="vote > 3" class="fas fa-star"></i>
-            <i v-else class="far fa-star"></i>
-          </span>
-          <span>
-            <i v-if="vote > 4" class="fas fa-star"></i>
-            <i v-else class="far fa-star"></i>
-          </span>
+          
         </div>
       </div>
     </div>
@@ -52,10 +36,22 @@ export default {
   },
   methods: {
     poster(poster_path) {
-      return "https://image.tmdb.org/t/p/w342" + poster_path;
+        if(poster_path == null) {
+            return "https://via.placeholder.com/342x513.png?text=Poster+not+avabile"
+        } else {
+            return "https://image.tmdb.org/t/p/w342" + poster_path;
+
+        }
     },
     flag(original_Language) {
       return require("../assets/" + original_Language + ".png");
+    },
+    checkStar: function (x) {
+      if (x <= this.vote) {
+        return "fas fa-star";
+      } else {
+        return "far fa-star";
+      }
     },
   },
 };
