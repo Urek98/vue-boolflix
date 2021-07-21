@@ -34,9 +34,8 @@ export default {
   }
   .search-section {
     input {
-      font-size: 20px;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      font-size: 24px;
+      font-family: 'Teko', sans-serif;
         border-bottom: 2px solid greenyellow;
         background-color: rgb(27, 27, 27);
         padding: 2px 0 2px 20px;
@@ -44,10 +43,7 @@ export default {
     }
     button {
       font-size: 20px;
-      padding: 2px 20px;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      padding: px 25px;
+      padding: 5px 25px;
       background-color: rgb(27, 27, 27);
       border-radius:0 5px 5px 0;
       color: greenyellow;

@@ -1,8 +1,9 @@
 <template>
   <div>
-    <h1>Movie Popular</h1>
-
-    <div class="main-section flex">
+    <div v-if="movieList.length == 0" class="sorry-section">
+     <div>Sorry but there are no movies...</div> 
+    </div>
+    <div v-else class="main-section flex">
       <MovieCard
         v-for="movie in movieList"
         :key="movie.id"
@@ -34,14 +35,15 @@ export default {
 
 
 <style scoped lang="scss">
-h1{
-    padding-left: 80px;
-    font-family: 'Teko', sans-serif;
-    color: greenyellow;
-    background-color: rgb(73, 72, 72);
-    padding-top: 20px;
+.sorry-section {
+  padding: 20px 40px;
+  background-color: rgb(73, 72, 72);
+  width: 100%;
+  height: calc(100vh - 60px);
+  font-size: 40px;
+  font-family: 'Teko', sans-serif;
+  color: greenyellow;
 }
-
 .main-section {
   background-color: rgb(73, 72, 72);
   width: 100%;

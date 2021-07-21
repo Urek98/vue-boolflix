@@ -5,12 +5,12 @@
       <div class="movie-info flex">
         <div>{{ title }} {{ name }}</div>
         <div>{{ original_title }} {{ original_name }}</div>
+        <div class="line-bar"></div>
         <img class="flag" :src="flag(original_language)" alt="flag" />
         <div>
           <span v-for="x in 5" :key="x">
             <i :class="checkStar(x)"></i>
           </span>
-          
         </div>
       </div>
     </div>
@@ -36,12 +36,11 @@ export default {
   },
   methods: {
     poster(poster_path) {
-        if(poster_path == null) {
-            return "https://via.placeholder.com/342x513.png?text=Poster+not+avabile"
-        } else {
-            return "https://image.tmdb.org/t/p/w342" + poster_path;
-
-        }
+      if (poster_path == null) {
+        return "https://via.placeholder.com/342x513.png?text=Poster+not+avabile";
+      } else {
+        return "https://image.tmdb.org/t/p/w342" + poster_path;
+      }
     },
     flag(original_Language) {
       return require("../assets/" + original_Language + ".png");
@@ -74,8 +73,7 @@ export default {
     .movie-info {
       padding: 100px 40px 0 40px;
       font-size: 24px;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      font-family: 'Teko', sans-serif;
       color: white;
       height: 100%;
       position: relative;
@@ -87,6 +85,14 @@ export default {
       flex-direction: column;
       text-shadow: 4px 2px 7px rgba(0, 0, 0, 0.9);
       display: none;
+      .fas {
+        color: greenyellow;
+      }
+      .line-bar {
+        width: 150px;
+        border: 1px solid greenyellow;
+        margin: 10px auto;
+      }
 
       .flag {
         width: 40px;
